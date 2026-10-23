@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador de Estudos - Enem & Provas Finais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🎯 Foco no Enem & Provas Finais</h1>
+    <p>Organize os seus trabalhos, revisões e tarefas para evitar a procrastinação.</p>
+  </header>
+
+  <main class="container">
+  
+    <section class="task-form-container">
+      <form id="task-form" onsubmit="addTask(event)">
+        <input 
+          type="text" 
+          id="task-input" 
+          placeholder="Ex: Fazer simulado de Matemática, Ler obra literária..." 
+          required 
+          autocomplete="off"
+        >
+        <select id="priority-input">
+          <option value="low">Prioridade Baixa</option>
+          <option value="medium" selected>Prioridade Média</option>
+          <option value="high">🔥 Alta / Urgente (Enem)</option>
+        </select>
+        <button type="submit">+ Adicionar Tarefa</button>
+      </form>
+    </section>
+
+
+    <section class="kanban-board">
+      
+
+      <div class="kanban-column" id="todo" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="column-header">
+          <h2>📌 A Fazer</h2>
+          <span class="task-count" id="count-todo">0</span>
+        </div>
+        <div class="task-list" id="list-todo"></div>
+      </div>
+
+  
+      <div class="kanban-column" id="in-progress" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="column-header">
+          <h2>⏳ Em Andamento</h2>
+          <span class="task-count" id="count-in-progress">0</span>
+        </div>
+        <div class="task-list" id="list-in-progress"></div>
+      </div>
+
+    
+      <div class="kanban-column" id="done" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <div class="column-header">
+          <h2>✅ Concluído</h2>
+          <span class="task-count" id="count-done">0</span>
+        </div>
+        <div class="task-list" id="list-done"></div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
